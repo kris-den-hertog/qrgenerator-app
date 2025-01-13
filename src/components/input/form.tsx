@@ -17,17 +17,32 @@ export default function Form() {
     }
   };
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = qrCodeUrl;
+    link.download = 'qrcode.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="p-4">
       {qrCodeUrl && (
-        <div className="mb-24 flex justify-center">
-          <div className="p-4 bg-white rounded-lg shadow-md">
+        <div className="mb-24 flex flex-col items-center">
+          <div className="p-4 bg-white rounded-lg border-gray-200 border-2 mb-4">
             <img 
               src={qrCodeUrl} 
               alt="Generated QR Code"
               className="w-64 h-64 object-contain"
             />
           </div>
+          <button
+            onClick={handleDownload}
+            className="underline"
+          >
+            Download
+          </button>
         </div>
       )}
       <form className="flex flex-col items-center space-y-4">
@@ -41,7 +56,7 @@ export default function Form() {
         <button
           type="button"
           onClick={generateQRCode}
-          className=" text-black underline text-lg"
+          className="text-black underline text-lg"
         >
           Generate
         </button>
