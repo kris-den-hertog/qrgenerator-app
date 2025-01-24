@@ -1,6 +1,8 @@
-## QR code generator
+## QR Code Generator
 
-a simple application that i made for a friend that needed a QR code for his business cards.
+This is a simple, easy-to-use QR code generator I created for a friend who needed QR codes for his business cards.
 
-this application is free to use, no login or anything required. QR codes are generated via qrcode
+It's completely free to use—no login or account required! The QR codes are generated using the [QRCode](https://pypi.org/project/qrcode/) library.
+
+Feel free to generate and download QR codes for your personal or business needs.
 
