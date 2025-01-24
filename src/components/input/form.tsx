@@ -7,7 +7,7 @@ interface FormProps {
 export default function Form({ srcValue, setSrcValue, generateQRCode }: FormProps) {
   return (
     <div className="p-4">
-      <form className="flex flex-row items-center space-y-4">
+      <form className="flex flex-row max-[450px]:flex-col items-center space-y-4">
         <input
           type="text"
           placeholder="QR Value"

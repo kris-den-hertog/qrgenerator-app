@@ -5,6 +5,7 @@ import Header from "@/components/UI/header";
 import Form from "@/components/input/form";
 import Output from "@/components/UI/output";
 import QRCode from 'qrcode';
+import Link from "next/link";
 
 export default function Home() {
   // State for input value and QR code URL
@@ -26,14 +27,22 @@ export default function Home() {
     <main className="w-full h-[100vh] bg-slate-50">
       <Header />
       <div className="w-[100vw] flex justify-center flex-row max-[850px]:flex-col-reverse max-[850px]:items-center">
-        <div className="w-[600px] h-[175px] max-[650px]:w-[450px] max-[650px]:h-full p-3 rounded-md bg-white drop-shadow-md flex justify-left flex-col m-5">
-          <h1 className="font-bold text-[30px]">Generate QR code</h1>
-          <p>Enter the link you want the QR code to direct to in the box below.</p>
-          <Form
-            srcValue={srcValue}
-            setSrcValue={setSrcValue}
-            generateQRCode={generateQRCode}
-          />
+        <div className="flex-col">
+          <div className="w-[600px] h-[175px] max-[650px]:w-[90vw] max-[650px]:h-full p-3 rounded-md bg-white drop-shadow-md flex justify-left flex-col m-5">
+            <h1 className="font-bold text-[30px]">Generate QR code</h1>
+            <p>Enter the link you want the QR code to direct to in the box below.</p>
+            <Form
+              srcValue={srcValue}
+              setSrcValue={setSrcValue}
+              generateQRCode={generateQRCode}
+            />
+          </div>
+          <div className="w-[600px] h-[175px] max-[650px]:w-[90vw] max-[650px]:h-full p-3 rounded-md bg-white drop-shadow-md flex justify-left flex-col m-5">
+            <h1 className="font-bold text-[30px]">About</h1>
+            <p>This is a simple, easy-to-use QR code generator I created for a friend who needed QR codes for his business cards.
+              It's completely free to use—no login or account required! The QR codes are generated using the <Link href="https://pypi.org/project/qrcode/" className="text-blue-500 hover:underline">QRCode</Link> library.
+              Feel free to generate and download QR codes for your personal or business needs.</p>
+          </div>
         </div>
         <Output qrCodeUrl={qrCodeUrl} />
       </div>
