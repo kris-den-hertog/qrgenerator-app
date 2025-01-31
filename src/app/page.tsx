@@ -18,8 +18,8 @@ export default function Home() {
       const QRurl = await QRCode.toDataURL(value);
       setQrCodeUrl(QRurl);  // Set the QR code URL when generated
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong while generating, please try again later!");
+      // console.error(err);
+      alert("Something went wrong while generating, please try again later");
     }
   };
 
@@ -40,7 +40,7 @@ export default function Home() {
           <div className="w-[600px] h-[175px] max-[650px]:w-[90vw] max-[650px]:h-full p-3 rounded-md bg-white drop-shadow-md flex justify-left flex-col m-5">
             <h1 className="font-bold text-[30px]">About</h1>
             <p>This is a simple, easy-to-use QR code generator I created for a friend who needed QR codes for his business cards.
-              It's completely free to use—no login or account required! The QR codes are generated using the <Link href="https://pypi.org/project/qrcode/" className="text-blue-500 hover:underline">QRCode</Link> library.
+              It's completely free to use—no login or account required! The QR codes are generated using the <Link href="https://www.npmjs.com/package/next-qrcode" className="text-blue-500 hover:underline">QRCode</Link> library.
               Feel free to generate and download QR codes for your personal or business needs.</p>
           </div>
         </div>
