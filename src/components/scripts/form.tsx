@@ -17,7 +17,7 @@ export default function Form({ srcValue, setSrcValue, generateQRCode }: FormProp
         />
         <button
           type="button"
-          onClick={() => generateQRCode(srcValue)} // Use passed prop function
+          onClick={() => generateQRCode(srcValue)} 
            className="underline ml-10 py-2 px-3 text-black"
         >
           Generate

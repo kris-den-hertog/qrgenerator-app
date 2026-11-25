@@ -1,52 +1,55 @@
-'use client'
-
-import { useState } from "react";
-import Header from "@/components/UI/header";
-import Form from "@/components/input/form";
-import Output from "@/components/UI/output";
-import QRCode from 'qrcode';
-import Link from "next/link";
+import Widget from "@/components/UI/widget";
 
 export default function Home() {
-  // State for input value and QR code URL
-  const [srcValue, setSrcValue] = useState<string>('');  // Store the input QR value
-  const [qrCodeUrl, setQrCodeUrl] = useState<string>(''); // Store the generated QR code URL
 
-  // Function to generate the QR code
-  const generateQRCode = async (value: string) => {
-    try {
-      const QRurl = await QRCode.toDataURL(value);
-      setQrCodeUrl(QRurl);  // Set the QR code URL when generated
-    } catch (err) {
-      // console.error(err);
-      alert("Something went wrong while generating, please try again later");
-    }
-  };
+  const hour = new Date().getHours();
+
+  const greeting =
+    hour < 12
+      ? "Good morning!"
+      : hour < 18
+        ? "Good afternoon!"
+        : "Good evening!";
 
   return (
-    <main className="w-full h-[100vh] bg-slate-50">
-      <Header />
-      <div className="w-[100vw] flex justify-center flex-row max-[850px]:flex-col-reverse max-[850px]:items-center">
-        <div className="flex-col">
-          <div className="w-[600px] h-[175px] max-[650px]:w-[90vw] max-[650px]:h-full p-3 rounded-md bg-white drop-shadow-md flex justify-left flex-col m-5">
-            <h1 className="font-bold text-[30px]">Generate QR code</h1>
-            <p>Enter the link you want the QR code to direct to in the box below.</p>
-            <Form
-              srcValue={srcValue}
-              setSrcValue={setSrcValue}
-              generateQRCode={generateQRCode}
-            />
-          </div>
-          <div className="w-[600px] h-[175px] max-[650px]:w-[90vw] max-[650px]:h-full p-3 rounded-md bg-white drop-shadow-md flex justify-left flex-col m-5">
-            <h1 className="font-bold text-[30px]">About</h1>
-            <p>This is a simple, easy-to-use QR code generator I created for a friend who needed QR codes for his business cards.
-              It's completely free to use—no login or account required! The QR codes are generated using the <Link href="https://www.npmjs.com/package/next-qrcode" className="text-blue-500 hover:underline">QRCode</Link> library.
-              Feel free to generate and download QR codes for your personal or business needs.</p>
-          </div>
-        </div>
-        <Output qrCodeUrl={qrCodeUrl} />
+    <main className="min-h-screen w-full p-8 flex flex-col items-center justify-center gap-10 ">
+      <div className="flex flex-col items-center text-center ">
+        <h1 className="text-6xl text-[#668263] font-bold p-2 max-[500px]:text-4xl max-[500px]:pt-8">{greeting}</h1>
+        <h2 className="text-2xl font-normal p-2 max-[500px]:text-lg max-[500px]:pt-0">
+          What would you like to generate today?
+        </h2>
+      </div>
+      {/* <hr className="border-[#2e2e2e]/50 border rounded-full w-full max-w-[600px] " /> */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+        <Widget
+          function="createqr"
+          widgetColor="#e9e4d8"
+          widgetTitle="Generate QR Code"
+          widgetDesc="Create a QR code from text, links or other information."
+          widgetImg="/createQr.svg"
+        />
+        <Widget
+          function="createbarcode"
+          widgetColor="#e9e4d8"
+          widgetTitle="Generate Barcode"
+          widgetDesc="Create barcodes for products, inventory, or other items."
+          widgetImg="/createBarcode.svg"
+        />
+        <Widget
+          function="createqr"
+          widgetColor="#e9e4d8"
+          widgetTitle="Generate QR Code"
+          widgetDesc="Create a QR code from text, links or other information."
+          widgetImg="/createQr.svg"
+        />
+        <Widget
+          function="createbarcode"
+          widgetColor="#e9e4d8"
+          widgetTitle="Generate Barcode"
+          widgetDesc="Create barcodes for products, inventory, or other items."
+          widgetImg="/createBarcode.svg"
+        />
       </div>
     </main>
   );
 }
-

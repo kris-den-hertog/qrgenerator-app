@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-title: "QR code generator",
-  description: "generate basic QR codes for free.",
+title: "Code Generator",
+  description: "generate basic QR & barcodes for free.",
 };
 
 export default function RootLayout({

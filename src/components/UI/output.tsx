@@ -29,7 +29,7 @@ export default function Output({ qrCodeUrl }: OutputProps) {
           </div>
           <button
             onClick={handleDownload}
-            className="bg-blue-500 hover:bg-blue-600 transition hover:bg-gradient-to-r rounded-md py-2 px-3 text-white font-bold"
+            className="bg-blue-500 rounded-md py-2 px-3 text-white font-bold "
           >
             Download
           </button>
